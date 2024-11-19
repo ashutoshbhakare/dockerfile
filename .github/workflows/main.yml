@@ -4,7 +4,7 @@ on:
 jobs:
   docker:
     runs-on: 
-     group: unnatik
+     group: Default
      labels: kucl22 
          
     steps:
