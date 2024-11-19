@@ -4,7 +4,6 @@ on:
 jobs:
   docker:
     runs-on: 
-     group: Default
      labels: kucl22 
          
     steps:
