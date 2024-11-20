@@ -26,7 +26,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions
   deploy:
-    needs: publish
+    needs: docker
     name: deploy image
     runs-on: ubuntu-latest
 
