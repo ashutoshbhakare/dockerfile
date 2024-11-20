@@ -32,6 +32,6 @@ jobs:
       labels: kucl22
     steps:
       - name: pull and run 
-        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions"
+        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "docker run --name=unnati -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions"
 
 
