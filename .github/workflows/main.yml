@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: install ssh keys
-        run: |
-            install -m 600 -D /dev/null ~/.ssh/id_rsa
-            echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-            ssh-keyscan -H ${{ secrets.D_HOST }} > ~/.ssh/known_hosts
+      #      - name: install ssh keys
+      # run: |
+      #     install -m 600 -D /dev/null ~/.ssh/id_rsa
+      #     echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+      #     ssh-keyscan -H ${{ secrets.D_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
         run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "cd ${{ secrets.WDIR }} && docker docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions  && exit"
       - name: cleanup
