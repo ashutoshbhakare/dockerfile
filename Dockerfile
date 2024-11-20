@@ -12,4 +12,4 @@ ADD https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochroma
 RUN apt update -y; echo "hello there" > /root/simplilearn.txt; apt install iputils-ping -y
 
 ENTRYPOINT ["ping"]
-CMD ["google.com"]
+CMD ["yahoo.com"]
