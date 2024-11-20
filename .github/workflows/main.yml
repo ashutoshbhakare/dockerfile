@@ -25,18 +25,3 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions
-  deploy:
-    needs: docker_1
-    name: deploy image
-    runs-on: 
-      labels: kucl22
-    steps:
- #     - name: install ssh keys
-  #      run: |
-   #         install -m 600 -D /dev/null ~/.ssh/id_rsa
-    #        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-     #       ssh-keyscan -H ${{ secrets.D_HOST }} > ~/.ssh/known_hosts
-      - name: connect and pull
-        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions"
-        #run: ssh abhakare@192.168.124.158 "docker docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions  && exit"
-   
