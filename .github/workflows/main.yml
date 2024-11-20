@@ -25,3 +25,13 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions
+  deploy:
+    needs: docker_1
+    name: deploy image
+    runs-on: 
+      labels: kucl22
+    steps:
+      - name: pull and run 
+        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions"
+
+
