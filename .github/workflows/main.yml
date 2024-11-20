@@ -37,6 +37,7 @@ jobs:
       #     echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
       #     ssh-keyscan -H ${{ secrets.D_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "cd ${{ secrets.WDIR }} && docker docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions  && exit"
+        #run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "cd ${{ secrets.WDIR }} && docker docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions  && exit"
+        run: ssh abhakare@192.168.124.158 "docker docker run -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions  && exit"
       - name: cleanup
         run: rm -rf ~/.ssh
