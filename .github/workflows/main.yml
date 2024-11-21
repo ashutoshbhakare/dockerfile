@@ -27,11 +27,12 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions
   deploy:
     needs: docker_1
-    name: deploy image
+    name: k8s deployment 
     runs-on: 
       labels: kucl22
     steps:
-      - name: pull and run 
-        run: ssh ${{ secrets.S_USER }}@${{ secrets.D_HOST }} "docker run --name=unnati -d ${{ secrets.DOCKERHUB_USERNAME}}/kucl22:actions"
+      - name: create deployment
+        
+        kubectl create deployment githubaction --image=docker.io/httpd
 
 
